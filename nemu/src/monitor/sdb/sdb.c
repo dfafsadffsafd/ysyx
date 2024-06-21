@@ -49,7 +49,56 @@ static int cmd_c(char *args) {
 
 
 static int cmd_q(char *args) {
+  nemu_state.state = NEMU_QUIT;
   return -1;
+}
+
+//单部执行
+static int cmd_si(char *args)
+{
+  int n;
+  if (args==NULL){
+    n=1;
+  }
+  else sscanf(args,"%d",&n);
+  cpu_exec(n);
+  return 0;
+ 
+}
+ 
+//打印程序状态
+static int cmd_info(char *args){
+  if (args==NULL){
+    printf("\"r\"-Print register status  or  \"w\"-Print watchpoint information\n");
+  }
+  else if (strcmp(args, "r") == 0){
+    isa_reg_display();
+  }
+  else if (strcmp(args,"w")==0)
+  {
+    //打印监视点状态
+    info_watchpoint();
+  }
+ 
+  return 0;
+}
+ 
+//扫描内存
+static int cmd_x(char *args){
+  if (args == NULL) {
+        printf("Wrong Command!\n");
+        return 0;
+    }                                                                           
+	int N;
+  uint32_t startAddress;
+	sscanf(args,"%d%x",&N,&startAddress);
+	for (int i = 0;i < N;i ++){
+      printf("%x\n", paddr_read(startAddress,4));
+      //C语言会自动执行类型提升以匹配表达式的操作数的类型。所以，4 被转换为 uint32_t，
+      startAddress += 4;
+  
+  }
+   return 0;
 }
 
 static int cmd_help(char *args);
