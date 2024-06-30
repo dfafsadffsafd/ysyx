@@ -29,6 +29,7 @@ int main(int argc, char *argv[]) {
 #endif
 
   /* Start engine. */
+  //engine_start()就是启动main_loop的函数
   engine_start();
 
   return is_exit_status_bad();

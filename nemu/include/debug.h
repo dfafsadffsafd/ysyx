@@ -13,17 +13,19 @@
 * See the Mulan PSL v2 for more details.
 ***************************************************************************************/
 
-#ifndef __DEBUG_H__
+#ifndef __DEBUG_H__  // 防止重复包含头文件的宏定义
 #define __DEBUG_H__
 
-#include <common.h>
-#include <stdio.h>
-#include <utils.h>
+#include <common.h>  // 包含公共头文件
+#include <stdio.h>  // 包含标准输入输出头文件
+#include <utils.h>  // 包含工具函数头文件
 
+// 定义日志宏
 #define Log(format, ...) \
     _Log(ANSI_FMT("[%s:%d %s] " format, ANSI_FG_BLUE) "\n", \
         __FILE__, __LINE__, __func__, ## __VA_ARGS__)
 
+// 定义断言宏
 #define Assert(cond, format, ...) \
   do { \
     if (!(cond)) { \
@@ -36,8 +38,10 @@
     } \
   } while (0)
 
+// 定义恐慌宏（断言失败）
 #define panic(format, ...) Assert(0, format, ## __VA_ARGS__)
 
+// 定义待实现宏
 #define TODO() panic("please implement me")
 
-#endif
+#endif  // __DEBUG_H__
