@@ -1,0 +1,13 @@
+top=top
+
+# 控制信号绑定
+Y (BTNU, BTNL)
+
+# 输入信号绑定
+X0 (SW0, SW1)
+X1 (SW2, SW3)
+X2 (SW4, SW5)
+X3 (SW6, SW7)
+
+# 输出信号绑定
+F (LD0, LD1)
