@@ -1,6 +1,0 @@
-top=top
-
-# VGA_CLK is set to clk in this example
-#定义了设计中的逻辑信号或一组信号，并将它们与相应的物理连接或信号名称关联
-led (LD15, LD14, LD13, LD12, LD11, LD10, LD9, LD8, LD7, LD6, LD5, LD4, LD3, LD2, LD1, LD0)
-

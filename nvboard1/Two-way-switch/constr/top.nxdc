@@ -1,8 +1,0 @@
-top=top
-
-# VGA_CLK is set to clk in this example
-top=top
-
-a SW0
-b SW1
-f LD0
