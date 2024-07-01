@@ -19,7 +19,5 @@
 #include <common.h>
 
 word_t expr(char *e, bool *success);
-void init_regex();
-void init_wp_pool();
-void test_expr();  // 声明 test_expr 函数
+//void test_expr();
 #endif

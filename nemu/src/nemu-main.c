@@ -14,6 +14,7 @@
 ***************************************************************************************/
 
 #include <common.h>
+#include "monitor/sdb/sdb.h"  
 
 void init_monitor(int, char *[]);
 void am_init_monitor();
@@ -31,6 +32,6 @@ int main(int argc, char *argv[]) {
   /* Start engine. */
   //engine_start()就是启动main_loop的函数
   engine_start();
-
+  //test_expr();
   return is_exit_status_bad();
 }

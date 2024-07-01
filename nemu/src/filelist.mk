@@ -13,6 +13,7 @@
 # See the Mulan PSL v2 for more details.
 #**************************************************************************************/
 
+#根据menuconfig的配置对如下4个变量进行维护
 SRCS-y += src/nemu-main.c
 DIRS-y += src/cpu src/monitor src/utils
 DIRS-$(CONFIG_MODE_SYSTEM) += src/memory

@@ -12,7 +12,7 @@
 *
 * See the Mulan PSL v2 for more details.
 ***************************************************************************************/
-
+//物理地址读入
 #include <memory/host.h>
 #include <memory/paddr.h>
 #include <device/mmio.h>

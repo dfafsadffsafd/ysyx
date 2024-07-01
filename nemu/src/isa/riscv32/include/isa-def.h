@@ -37,3 +37,7 @@ typedef struct {
 #define isa_mmu_check(vaddr, len, type) (MMU_DIRECT)
 
 #endif
+/*
+word_t 和 uint32_t 都是类型定义，用于表示特定宽度的整数类型.
+ord_t 通常是一个项目或库自定义的类型，表示计算机架构中的“字”大小。它的具体定义取决于目标平台的位宽（32位或64位
+*/
