@@ -8,8 +8,9 @@ module clk_count(
   output wire clk2_flag
 );
 
-  reg [1:0] clk_cnt;
-  always @(posedge clk) begin
+  //时钟计数
+  reg [1:0] clk_cnt;//2位宽的时钟计数器，用于记录时钟周期的计数
+  always @(posedge clk) begin//在时钟的上升沿触发
     if(rst == `RST_VAL)
       clk_cnt <= 2'd0;
     else if(clk_cnt == 2'd2)
@@ -18,18 +19,18 @@ module clk_count(
       clk_cnt <= clk_cnt + 2'd1;
   end
 
-  assign clk1_flag = (clk_cnt == 2'd1);
+  assign clk1_flag = (clk_cnt == 2'd1);//当 clk_cnt 等于1时，clk1_flag 为高电平
   assign clk2_flag = (clk_cnt == 2'd2);
 
 endmodule
 
 
-
+//PC 模块,负责更新 PC 的值
 module PC(
   input  wire           clk,
   input  wire           rst,
-  input  wire           clk2_flag,
-  output reg  [`RegBus] pc
+  input  wire           clk2_flag,//时钟标志信号，用于控制PC更新
+  output reg  [`RegBus] pc//// 程序计数器输出
 );
 
   always @(posedge clk) begin
@@ -42,7 +43,7 @@ module PC(
 endmodule
 
 
-
+//rv32 模块
 module rv32(
   input  wire           clk,
   input  wire           rst,

@@ -66,7 +66,7 @@ VL_ATTR_COLD void Vrv32___024root___eval_settle(Vrv32___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vrv32___024root___dump_triggers__stl(vlSelf);
 #endif
-                VL_FATAL_MT("/home/liu/Public/ysyx-workbench/npc/The/vsrc/rv32.v", 46, "", "Settle region did not converge.");
+                VL_FATAL_MT("/home/liu/Public/ysyx-workbench/npc/The/vsrc/rv32.v", 47, "", "Settle region did not converge.");
             }
             vlSelf->__VstlIterCount = ((IData)(1U) 
                                        + vlSelf->__VstlIterCount);

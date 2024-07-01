@@ -2,24 +2,25 @@
 
 
 module control_unit(
-    input  wire [`RegBus]   inst,
-    output wire [4:0]       rd_11_7,
-    output wire [4:0]       rs1_19_15,
-    output wire [4:0]       rs2_24_20,
-    output wire [6:0]       fun7_31_25,
-    output reg  [`TYPE_BUS] type1,       //inst type
-    output reg              aluc,       //alu operation typp
-    output reg              m1          //mux1 sel
+    input  wire [`RegBus]   inst,        // 输入信号：指令
+    output wire [4:0]       rd_11_7,     // 输出信号：目的寄存器地址
+    output wire [4:0]       rs1_19_15,   // 输出信号：源寄存器1地址
+    output wire [4:0]       rs2_24_20,   // 输出信号：源寄存器2地址
+    output wire [6:0]       fun7_31_25,  // 输出信号：功能码
+    output reg  [`TYPE_BUS] type1,       // 输出信号：指令类型
+    output reg              aluc,        // 输出信号：ALU 操作类型
+    output reg              m1           // 输出信号：多路复用器选择信号
 );
 
-    import "DPI-C" function void ebreak(input int station, input int inst);
 
-    wire [6:0] opcode_6_0 = inst[6:0];
-    wire [2:0] fun3_14_12 = inst[14:12]; 
-    assign rd_11_7    = inst[11:7];
-    assign rs1_19_15  = inst[19:15];
-    assign rs2_24_20  = inst[24:20];
-    assign fun7_31_25 = inst[31:25];  
+    import "DPI-C" function void ebreak(input int station, input int inst);//处理 EBREAK 指令
+
+    wire [6:0] opcode_6_0 = inst[6:0];      // 指令的操作码
+    wire [2:0] fun3_14_12 = inst[14:12];    // 指令的功能码
+    assign rd_11_7    = inst[11:7];         // 目的寄存器地址
+    assign rs1_19_15  = inst[19:15];        // 源寄存器1地址
+    assign rs2_24_20  = inst[24:20];        // 源寄存器2地址
+    assign fun7_31_25 = inst[31:25];        // 功能码
 
     always @(*) begin
         case(opcode_6_0)

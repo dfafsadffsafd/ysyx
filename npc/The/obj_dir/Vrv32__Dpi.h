@@ -16,7 +16,7 @@ extern "C" {
 
 
     // DPI IMPORTS
-    // DPI import at /home/liu/Public/ysyx-workbench/npc/The/vsrc/control_unit.v:15:34
+    // DPI import at /home/liu/Public/ysyx-workbench/npc/The/vsrc/control_unit.v:16:34
     extern void ebreak(int station, int inst);
 
 #ifdef __cplusplus
