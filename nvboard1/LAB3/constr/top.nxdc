@@ -1,0 +1,14 @@
+top=top
+
+# 数据输入 A 和 b
+A (SW0, SW1, SW2, SW3)
+b (SW4, SW5, SW6, SW7)
+
+# 功能选择 option
+option (BTNU, BTNL, BTNC, BTNR)
+
+# 输出信号
+carry LD0
+overflow LD1
+zero LD2
+result (LD3, LD4, LD5, LD6)
